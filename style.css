@@ -6,45 +6,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-h1{
-    font-size: 50px;
-    line-height: 64px;
-    color: #222;
+html{
+    scroll-behavior: smooth;
 }
-h2{
-    font-size: 46px;
-    line-height: 64px;
-    color: #222;
-}
-h4{
-    font-size: 30px;
-    color: #222;
-}
-h6{
-    font-weight: 700;
-    font-size: 12px;
-}
-p{
-    font-size: 12px;
-    color: #465b52;
-}
-.section-p1{
-    padding: 40px 80px;
-}
-.section-m1{
-    margin: 40px 0;
-}
-button.normal{
-    font-size: 14px;
-    font-weight: 600;
-    padding: 15px 30px;
-    color: #000;
-    background-color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    border: none;
-    transition: 0.2s;
-}
+
 body{
     width: 100%;
     
@@ -63,12 +28,37 @@ body{
     top: 0;
     height: 80px;
 }
-#navbar{
+#navbar {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-right: 400px;
-    
+    justify-content: space-between;
+    width: 100%;
+    margin-right: 0; /* bỏ margin cũ nếu có */
+}
+
+#navbar ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#navbar .navbar-left {
+    margin: 0 50px;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+#navbar .navbar-right {
+    justify-content: flex-end;
+    flex: 1;
+}
+
+#navbar .navbar-left li,
+#navbar .navbar-right li {
+    padding: 0 20px;
+    position: relative;
 }
 
 #navbar li{
@@ -126,15 +116,50 @@ h1{
 }
 
 /* Main */
+.container-map {
+    background-image: url(image/Canh-dep-nhu-mo-thien-nhien-Viet-Nam-Cao-Bang.jpg);
+    display: flex;
+    justify-content: flex-start; /* Đẩy sát phải */
+    width: 100%;
+}
 svg path {
-    fill: #8a8aff !important; /* Màu mặc định */
+    fill: #e02424 !important; /* Màu mặc định */
     transition: fill 0.3s;
 }
 
 svg path:hover {
-    fill: orange !important; /* Màu khi hover */
+    fill: rgb(29, 249, 0) !important; /* Màu khi hover */
     cursor: pointer;
 }
+#province-info {
+    background: #fffbe7;
+    border: 1px solid #e9d58e;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    padding: 28px;              
+    min-width: 800px;           
+    max-width: 1500px;           
+    pointer-events: none;
+    transition: opacity 0.2s;
+    font-size: 20px;            
+}
+#province-info img {
+    width: 100%;
+    height: 300px;             
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 12px;       
+}
+#province-info h4 {
+    margin: 0 0 6px 0;
+    color: #5757a4;
+    font-size: 50px;
+}
+#province-info p {
+    margin: 0 0 4px 0;
+    font-size: 13px;
+}
+
 /* Feature */
 #feature{
     display: flex;
@@ -173,7 +198,14 @@ svg path:hover {
     padding: 15px;
     text-align: center;
 }
-
+.container li .contain p {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+    font-weight: 500;
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin-bottom: 0;
+}
 
 /* Footer */
 .footer{     
