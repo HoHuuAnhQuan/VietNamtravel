@@ -29,6 +29,7 @@ body{
     height: 80px;
 }
 #navbar {
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -132,32 +133,78 @@ svg path:hover {
     cursor: pointer;
 }
 #province-info {
-    background: #fffbe7;
-    border: 1px solid #e9d58e;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    padding: 28px;              
-    min-width: 800px;           
-    max-width: 1500px;           
-    pointer-events: none;
-    transition: opacity 0.2s;
-    font-size: 20px;            
+    position: fixed; /* Hoặc absolute nếu bạn muốn theo SVG */
+    top: 100px;       /* điều chỉnh tùy ý */
+    left: 500px;      /* điều chỉnh tùy ý dựa vào vị trí bản đồ */
+    
 }
-#province-info img {
-    width: 100%;
-    height: 300px;             
+#province-info {
+    position: absolute;
+    z-index: 10;
+    display: none;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    padding: 24px;
+    width: 800px;
+    height: 480px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+#province-info .close-btn {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s;
+}
+#province-info .close-btn:hover {
+    color: #333;
+}
+
+#province-info .info-content {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    height: 100%;
+}
+
+#province-info .image img {
+    width: 400px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 6px;
-    margin-bottom: 12px;       
+    border-radius: 14px;
 }
-#province-info h4 {
-    margin: 0 0 6px 0;
-    color: #5757a4;
-    font-size: 50px;
+
+#province-info .text {
+    flex: 1;
+    overflow-y: auto;
 }
-#province-info p {
-    margin: 0 0 4px 0;
-    font-size: 13px;
+
+#province-info .text h4 {
+    margin-top: 0;
+    font-size: 42px;
+    color: #d62828; /* màu đỏ nổi bật */
+    margin-bottom: 20px;
+    font-weight: 900;
+    text-shadow: 1px 1px 1px #ccc;
+}
+
+#province-info .text p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+#province-info .text p strong {
+    color: #000;
 }
 
 /* Feature */
