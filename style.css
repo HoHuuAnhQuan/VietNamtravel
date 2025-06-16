@@ -1,0 +1,365 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    width: 100%;
+    background-color: #fff;
+}
+/*Header*/
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background-color:#f7f0b6;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.4s ease;
+    box-shadow: none;
+}
+
+#navbar {
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-right: 0; 
+}
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+}
+#navbar ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#navbar .navbar-left {
+    margin: 0 50px;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+#navbar .navbar-right {
+    justify-content: flex-end;
+    flex: 1;
+}
+
+#navbar .navbar-left li,
+#navbar .navbar-right li {
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+    
+}
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #3c3002;
+    transition: 0.3s ease;
+}
+#navbar li a:hover,
+#navbar li a.active{
+    color: #83883d;
+}
+#navbar li a.active::after,
+#navbar li a:hover::after{
+    content: "";
+    width: 50%;
+    background: #e9d58e;
+    height: 2px;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+.search-form {
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 20px;
+}
+
+.search-form input[type="text"] {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+    width: 250px;
+}
+
+.search-form button {
+    background-color: #f7f0b6;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+/* Toggle button styling */
+#toggleBtn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1100;
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#toggleBtn:hover {
+    background-color: #666;
+}
+
+#header.header-hidden {
+    transform: translateY(-100%);
+}
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: column;
+    }
+
+    .navbar-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-form input[type="text"] {
+        width: 100%;
+    }
+
+    #toggleBtn {
+        top: 90px;
+    }
+}
+/* Hero */
+#introVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+#hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+h1{  
+    font-family: Arial, Helvetica, sans-serif;
+    transform: translate(-170px,0px);
+    margin-left: 380px;   
+    color:#5757a4 ;
+    font-size: 100px;
+    text-align: center;
+    font-size: 235px;
+    white-space: nowrap; /* Ngăn chữ bị xuống dòng */ 
+    mix-blend-mode: screen;
+}
+
+/* Main */
+.container-map {
+    background-image: url(image/Canh-dep-nhu-mo-thien-nhien-Viet-Nam-Cao-Bang.jpg);
+    display: flex;
+    justify-content: flex-start; /* Đẩy sát phải */
+    width: 100%;
+}
+svg path {
+    fill: #e02424 !important; /* Màu mặc định */
+    transition: fill 0.3s;
+}
+
+svg path:hover {
+    fill: rgb(29, 249, 0) !important; /* Màu khi hover */
+    cursor: pointer;
+}
+#province-info {
+    position: fixed; /* Hoặc absolute nếu bạn muốn theo SVG */
+    top: 100px;       /* điều chỉnh tùy ý */
+    left: 500px;      /* điều chỉnh tùy ý dựa vào vị trí bản đồ */
+    
+}
+#province-info {
+    position: absolute;
+    z-index: 10;
+    display: none;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    padding: 24px;
+    width: 800px;
+    height: 480px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+#province-info .close-btn {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s;
+}
+#province-info .close-btn:hover {
+    color: #333;
+}
+
+#province-info .info-content {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    height: 100%;
+}
+
+#province-info .image img {
+    width: 400px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+#province-info .text {
+    flex: 1;
+    overflow-y: auto;
+}
+
+#province-info .text h4 {
+    margin-top: 0;
+    font-size: 42px;
+    color: #d62828; /* màu đỏ nổi bật */
+    margin-bottom: 20px;
+    font-weight: 900;
+    text-shadow: 1px 1px 1px #ccc;
+}
+
+#province-info .text p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+#province-info .text p strong {
+    color: #000;
+}
+
+/* Feature */
+#feature{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-emphasis: center;
+    background-color: #fffcdd;
+}
+.container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+.container li{
+    flex: 1 1 300px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.container li:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 1);
+}
+.container li img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.container li .contain{
+    padding: 15px;
+    text-align: center;
+}
+.container li .contain p {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.6;
+    font-weight: 500;
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin-bottom: 0;
+}
+
+/* Footer */
+.footer{     
+    background-color: rgb(252, 255, 192);
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1600px;
+    margin: auto;
+    
+}
+.footer ul{
+    list-style: none;
+    padding: 0;
+    margin: 10px 20px;
+    min-width: 150px;
+}
+.footer ul  li{
+    margin: 10px 50px;
+    font-size: 14px;
+    
+}
+.footer ul li a{
+    text-decoration: none;
+    color: #333;
+}
+.footer #contact{
+    font-weight: bold;
+    text-align: left;
+}
